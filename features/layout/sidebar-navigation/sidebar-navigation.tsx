@@ -90,7 +90,11 @@ export function SidebarNavigation() {
               iconSrc="/icons/arrow-left.svg"
               isCollapsed={isSidebarCollapsed}
               onClick={() => toggleSidebar()}
-              className={isSidebarCollapsed ? styles.collapseMenuItem : ""}
+              className={
+                isSidebarCollapsed
+                  ? styles.collapseMenuItem
+                  : styles.normalMenuItem
+              }
             />
           </ul>
         </nav>
