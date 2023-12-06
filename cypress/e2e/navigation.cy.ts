@@ -29,6 +29,16 @@ describe("Sidebar Navigation", () => {
       cy.get("nav")
         .contains("Settings")
         .should("have.attr", "href", "/dashboard/settings");
+
+      cy.get("nav")
+        .contains("Support")
+        .should("have.attr", "href")
+
+        //check the link has the right email
+        .should("include", "support@prolog-app")
+
+        //check the link has the right subject
+        .should("include", "subject=Support Request");
     });
 
     it("is collapsible", () => {
@@ -41,16 +51,6 @@ describe("Sidebar Navigation", () => {
 
       // check that text is not rendered
       cy.get("nav").contains("Issues").should("not.exist");
-    });
-  });
-
-  context("check support button", () => {
-    beforeEach(() => {
-      cy.visit("http://localhost:3000/dashboard");
-    });
-
-    it("opens the mailto link", () => {
-      cy.get("nav").contains("Support").click();
     });
   });
 
